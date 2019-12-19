@@ -31,7 +31,6 @@ form label {
 form input {
   height: 36px;
   padding: 10px;
-  text-transform: capitalize;
   border: 1px solid #ddd;
   margin-bottom: 25px;
 }
