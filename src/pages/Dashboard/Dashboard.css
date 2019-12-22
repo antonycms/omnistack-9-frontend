@@ -12,11 +12,13 @@
 #container-spots {
   display: flex;
   margin-top: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
 }
 
 #container-spots div {
   margin: 0 auto;
+  flex: 1 1 40%;
 }
 
 #container-spots div img {
@@ -34,8 +36,9 @@
   color: #b2b2b2;
   text-transform: capitalize;
   font-weight: lighter;
+  margin-bottom: 10px;
 }
 
-#container-spots #spot-left {
-  margin-right: 16px;
+#container-spots #spot {
+  margin: 0 5px;
 }

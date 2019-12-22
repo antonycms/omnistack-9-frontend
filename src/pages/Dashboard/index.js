@@ -1,20 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
 
 import './Dashboard.css';
 import logo from '../../assets/logo.svg';
-import spotExample from '../../assets/spot-example.jpeg'
 
 export default function Dashboard() {
+  const [spots, setSpots] = useState([]);
 
   useEffect(() => {
     async function loadSpots() {
-      const user_id = localStorage.getItem('user');
-      const response = await api.get('/dashboard', {
-        headers: { user_id }
+      const id = localStorage.getItem('userId');
+
+      const response = await api.get('/spots', {
+        headers: { id }
       });
 
-      console.log(response);
+      setSpots(response.data);
     }
 
     loadSpots();
@@ -30,16 +31,13 @@ export default function Dashboard() {
           <a href="/" style={{ "color": "red" }}>Recusar</a>
         </div>
         <div id="container-spots">
-          <div id="spot-left">
-            <img src={spotExample} alt="" />
-            <h6>Rocketseat</h6>
-            <p>R$ 0,00</p>
-          </div>
-          <div id="spot-right">
-            <img src={spotExample} alt="" />
-            <h6>Dev City</h6>
-            <p>R$ 20,00</p>
-          </div>
+          {spots.map(spot => (
+            <div key={spot._id} id="spot">
+              <img src={spot.thumbnail} alt="" />
+              <h6>Rocketseat</h6>
+              <p>R$ {spot.price}</p>
+            </div>
+          ))}
         </div>
         <button type="submit">cadastrar</button>
       </form>
