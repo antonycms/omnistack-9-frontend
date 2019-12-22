@@ -1,0 +1,26 @@
+label#thumbnail {
+  margin: 0;
+  height: 140px;
+  cursor: pointer; 
+  border: 1px #ddd solid;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+label#thumbnail input {
+  display: none;
+}
+
+#container-new label{
+  margin: 8px;
+}
+
+.app-container span{
+  font-size: 10px;
+  color: #999;
+  font-weight: normal;
+  text-transform: none;
+}
