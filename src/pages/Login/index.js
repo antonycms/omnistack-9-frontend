@@ -4,7 +4,7 @@ import './Login.css';
 import logo from '../../assets/logo.svg';
 import api from '../../services/api';
 
-export default function Login() {
+export default function Login({ history }) {
   const [email, setEmail] = useState('');
 
   async function handleSubmit(event) {
@@ -15,10 +15,13 @@ export default function Login() {
     }
 
     try {
-      const response = await api.post('/sessions', {
+      const { data } = await api.post('/sessions', {
         email,
       });
-      console.log(response);
+
+      localStorage.setItem('userId', data.id);
+
+      history.push('/dashboard');
 
     } catch (err) {
       console.log(err.message);
