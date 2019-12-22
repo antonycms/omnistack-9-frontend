@@ -30,8 +30,8 @@ export default function Login({ history }) {
   }
 
   return (
-    <div className="login-container">
-      <img src={logo} alt="logo" />
+    <div className="app-container">
+      <img src={logo} className="logo" alt="logo" />
       <form onSubmit={handleSubmit}>
         <p>
           Ofereca <strong>spots</strong> para programadores e encontre <strong>talentos</strong> para sua empresa

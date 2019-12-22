@@ -1,4 +1,4 @@
-.login-container {
+.app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,21 +6,24 @@
   height: 100%;
 }
 
-form {
+.app-container .logo {
+  margin-bottom: 40px;
+}
+
+.app-container form {
   display: flex;
   padding: 0 25px;
   padding-top: 30px;
   flex-direction: column;
   background-color: #fff;
   width: 380px;
-  margin-top: 40px;
   border-radius: 4px;
 }
-form p {
+.app-container form p {
   margin-top: 5px;
 }
 
-form label {
+.app-container form label {
   margin-top: 30px;
   font-weight: bold;
   color: rgb(58, 58, 58);
@@ -28,14 +31,14 @@ form label {
   text-transform: uppercase;
 }
 
-form input {
+.app-container form input {
   height: 36px;
   padding: 10px;
   border: 1px solid #ddd;
   margin-bottom: 25px;
 }
 
-form button {
+.app-container form button {
   height: 46px;
   border: 0;
   background-color: #f05a5b;
@@ -44,6 +47,6 @@ form button {
   cursor: pointer;
 }
 
-form button:hover {
+.app-container form button:hover {
   background-color: #e14f50;
 }

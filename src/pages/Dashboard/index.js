@@ -4,7 +4,7 @@ import api from '../../services/api';
 import './Dashboard.css';
 import logo from '../../assets/logo.svg';
 
-export default function Dashboard() {
+export default function Dashboard({ history }) {
   const [spots, setSpots] = useState([]);
 
   useEffect(() => {
@@ -21,10 +21,14 @@ export default function Dashboard() {
     loadSpots();
   }, []);
 
+  function handleSubmit() {
+    history.push('/new');
+  }
+
   return (
-    <div className="login-container">
-      <img src={logo} alt="logo" />
-      <form action="">
+    <div className="app-container">
+      <img className="logo" src={logo} alt="logo" />
+      <form onSubmit={handleSubmit}>
         <p>Ofereca <strong>spots</strong> para programadores e encontre <strong>talentos</strong> para sua empresa</p>
         <div id="btn-container">
           <a href="/" style={{ "color": "green" }}>Aceitar</a>
@@ -34,8 +38,8 @@ export default function Dashboard() {
           {spots.map(spot => (
             <div key={spot._id} id="spot">
               <img src={spot.thumbnail} alt="" />
-              <h6>Rocketseat</h6>
-              <p>R$ {spot.price}</p>
+              <h6>{spot.company}</h6>
+              <p>{spot.price ? `R$ ${spot.price}` : 'GRATUITO'}</p>
             </div>
           ))}
         </div>
